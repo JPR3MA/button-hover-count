@@ -1,17 +1,13 @@
+import React from "react";
 import './App.css';
 
-let hoverCount = 0;
-
-function addHoverCount() {
-  hoverCount = hoverCount + 1
-  document.getElementById('display').innerHTML = hoverCount
-}
 
 function App() {
+  const [hoverCount, setHoverCount] = React.useState(0)
   return (
     <div className="App">
-      <button id='btn' onMouseOver={addHoverCount}>Button</button>
-      <p id='counter'>Hover Count: <span id='display'>0</span></p>
+      <button onMouseOver={() => setHoverCount(hoverCount + 1)}>Button</button>
+      <p>Hover Count: {hoverCount}</p>
     </div>
   );
 }
